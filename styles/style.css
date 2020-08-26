@@ -1,0 +1,36 @@
+html {
+  font-size: 10px; /* px means "pixels": the base font size is now 10 pixels high  */
+  font-family: "Open Sans", sans-serif; /* this should be the rest of the output you got from Google fonts */
+  background-color: #00539F;
+}
+
+body {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #FF9500;
+  padding: 0 20px 20px 20px;
+  border: 5px solid black;
+}
+
+h1 {
+  font-size: 60px;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;    /20px指头部和底部
+  color: #00539F;
+  text-shadow: 3px 3px 1px black;  /4个值-横向，纵向，模糊半径，颜色
+}
+
+p, li {
+  font-size: 16px;    
+  line-height: 2;
+  letter-spacing: 1px;
+}
+
+img[src] {
+    /color: red;
+    width: 500px;
+    /border: 1px solid black;
+    display: block; /！body是块元素 图片是内嵌元素 需要先设定为块
+    margin: 0 auto;
+  }
