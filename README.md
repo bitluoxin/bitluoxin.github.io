@@ -4,15 +4,19 @@
 ## closing button and input box
 
 字段
+
+```
 PurRequisition/dto:
 /**
  * 关闭原因code
  */
 @ApiModelProperty(value = "关闭原因code")
 private String enableReasonCode;
+```
 
 
 接口
+```
 PurRequisitionResource:
 /**
  * 关闭原因
@@ -26,9 +30,10 @@ PurRequisitionResource:
 public void enableReasonByIds(@RequestBody List<PurRequisitionDto> purRequisitionDtos) {
     purRequisitionService.enableReasonByIds(purRequisitionDtos);
 }
-
+```
 
 实现方法
+```
 PurRequisitionServiceImpl:
 @Override
 public void enableByIds(Long[] ids) {
@@ -44,9 +49,10 @@ public void enableReasonByIds(List<PurRequisitionDto> purRequisitionDtos) {
         purRequisitionRepository.enableReasonByIds(purRequisitionDto.getId(), false, purRequisitionDto.getEnableReasonCode(),purRequisitionDto.getEnableReasonName());
     });
 }
-
+```
 
 更新数据
+```
 PurRequisitionRepository:
 /**
  * 批量x修改开启状态
@@ -68,3 +74,4 @@ void enableByIds(@Param("id") Long id, @Param("enable") Boolean enable);
 @Query("UPDATE PurRequisition one set one.enable = :enable,one.enableReasonCode=:enableReasonCode,one.enableReasonName=:enableReasonName WHERE one.id = :id")
 @Modifying
 void enableReasonByIds(@Param("id") Long id, @Param("enable") Boolean enable, @Param("enableReasonCode") String enableReasonCode, @Param("enableReasonName") String enableReasonName);
+```
